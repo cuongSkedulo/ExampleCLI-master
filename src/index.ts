@@ -6,7 +6,6 @@ const figlet = require('figlet');
 const path = require('path');
 const program = require('commander');
 
-clear();
 console.log(
   chalk.red(
     figlet.textSync('pizza-cli', { horizontalLayout: 'full' })
@@ -14,7 +13,7 @@ console.log(
 );
 
 program
-  .version('0.0.3')
+  .version('0.0.1')
   .description("An example CLI for ordering pizza's")
   .option('-p, --peppers', 'Add peppers')
   .option('-P, --pineapple', 'Add pineapple')
@@ -30,7 +29,7 @@ if (options.peppers) console.log('  - peppers');
 if (options.pineapple) console.log('  - pineapple');
 if (options.bbq) console.log('  - bbq');
 
-const cheese: string = undefined === options.cheese
+let cheese = undefined === options.cheese
     ? 'marble'
     : options.cheese || 'no';
 
